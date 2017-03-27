@@ -1,0 +1,112 @@
+.episode {
+  margin: 40px 0;
+  font-size: 20px;
+
+  .episodeNumber {
+    color: #ccc;
+  }
+
+  .episodeCoverImage {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    display: inline-block;
+    margin: 0;
+    font-family: $font-header;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 26px;
+    text-transform: uppercase;
+    line-height: 35px;
+
+    .active {
+      //padding-bottom: 5px;
+      border-bottom: 2px solid #222;
+    }
+
+    .divider {
+      font-weight: 200;
+      color: #ccc;
+      margin: 0 2px;
+    }
+  }
+
+  .lessons,
+  .moments,
+  .people,
+  .info {
+    padding: 20px 0 0 0;
+
+    .lesson,
+    .moment,
+    .person {
+      margin: 10px 0;
+    }
+  }
+
+  .lessons,
+  .moments {
+    .icon {
+      float: left;
+      margin: 0 10px 0 0;
+
+      .fa {
+        color: #ccc;
+      }
+    }
+
+    a {
+      display: block;
+      overflow: hidden;
+    }
+  }
+
+  .people {
+    .person {
+      .icon {
+        float: left;
+        margin: 0 10px 0 0;
+
+        .fa {
+          color: #ccc;
+        }
+      }
+
+      .social {
+        a {
+          border-bottom: 0;
+        }
+      }
+
+      .divider {
+        margin: 0 5px;
+        font-weight: 200;
+        color: #ccc;
+      }
+    }
+  }
+
+  .info {
+    margin-top: 10px;
+
+    .infoBlock {
+      margin: 0 0 20px 0;
+
+      h3 {
+        font-family: $font-header;
+        font-style: italic;
+        font-size: 16px;
+        color: #999;
+        text-transform: uppercase;
+        margin: 0 0 5px 0;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

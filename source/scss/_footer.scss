@@ -1,0 +1,19 @@
+.footer {
+  font-family: $font-header;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 50px;
+  margin: 20px;
+  color: #aaa;
+
+  a {
+    color: #777;
+
+    &:hover {
+      color: #333;
+    }
+  }
+}

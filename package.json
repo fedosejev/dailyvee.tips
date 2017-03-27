@@ -1,0 +1,69 @@
+{
+  "name": "dailyvee.tips",
+  "version": "1.0.0",
+  "description": "Website source code.",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1",
+    "node-uuid": "^1.4.7",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^6.1.2",
+    "babel-jest": "^19.0.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-minify-loader": "^1.1.0",
+    "html-webpack-plugin": "^2.22.0",
+    "image-downloader": "^2.0.3",
+    "jest": "^19.0.2",
+    "json-loader": "^0.5.4",
+    "node-sass": "^4.3.0",
+    "prompt": "^1.0.0",
+    "react-test-renderer": "^15.4.2",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "stylelint": "^7.9.0",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-webpack-plugin": "^0.7.0",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2",
+    "youtube-node": "^1.3.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --hot --inline --progress --colors",
+    "html": "webpack -p --config ./webpack.html.config.js",
+    "build": "webpack -p --config ./webpack.production.config.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedosejev/dailyvee.tips.git"
+  },
+  "keywords": [],
+  "author": "Artemij Fedosejev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fedosejev/dailyvee.tips/issues"
+  },
+  "homepage": "https://github.com/fedosejev/dailyvee.tips#readme"
+}

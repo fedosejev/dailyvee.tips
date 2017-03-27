@@ -1,0 +1,25 @@
+body {
+  background-color: #fff;
+  font-family: $font-text;
+  margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+  body {
+    margin-top: 150px;
+  }
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+  color: #222;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ec6563;
+  text-decoration: none;
+}
