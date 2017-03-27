@@ -13,8 +13,3 @@ git checkout master
 git add .
 git commit -m "Update"
 git push
-
-# Deploy on GitHub Pages
-# git subtree split --prefix build -b gh-pages
-# git push origin gh-pages
-# git branch -d gh-pages

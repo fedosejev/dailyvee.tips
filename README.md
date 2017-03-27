@@ -6,7 +6,7 @@ Built by [Artemij Fedosejev](http://artemij.com) with React, Redux, Node, Bootst
 
 Uses Jest, Babel, Webpack, ESLint, stylelint, Yarn.
 
-### Install
+## Install
 
 1. `yarn`
 2. Create `config.json` file.
@@ -21,18 +21,18 @@ Uses Jest, Babel, Webpack, ESLint, stylelint, Yarn.
 
 + `apiKey` - your YouTube API key.
 
-### Run
+## Run
 
 `npm start`
 
-### Test
+## Test
 
 `npm test`
 
-### Add episode
+## Add episode
 
 `./addEpisode.sh`
 
-### Add lesson
+## Add lesson
 
 `./addLesson.sh`
