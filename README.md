@@ -15,11 +15,9 @@ Uses Jest, Babel, Webpack, ESLint, stylelint, Yarn.
 
 ```json
 {
-  "apiKey": "yourYokey"
+  "apiKey": "yourYouTubeApiKey"
 }
 ```
-
-+ `apiKey` - your YouTube API key.
 
 ## Run
 
