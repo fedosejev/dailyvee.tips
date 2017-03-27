@@ -1,50 +1,51 @@
 const fs = require('fs');
+const path = require('path');
 const prompt = require('prompt');
 
 const MINUTES_REGEX = /\d+m/;
 const SECONDS_REGEX = /\d+s/;
 
+function convertMinutesAndSecondsToSeconds(minutes, seconds) {
+  return (minutes * 60) + seconds;
+}
+
 function hasMinutesAndSeconds(time) {
-  let hasMinutesAndSeconds = false;
+  let timeHasMinutesAndSeconds = false;
 
   if (
     MINUTES_REGEX.test(time)
     && SECONDS_REGEX.test(time)
   ) {
-    hasMinutesAndSeconds = true;
+    timeHasMinutesAndSeconds = true;
   }
 
-  return hasMinutesAndSeconds;
+  return timeHasMinutesAndSeconds;
 }
 
 function hasOnlyMinutes(time) {
-  let hasOnlyMinutes = false;
+  let timeHasOnlyMinutes = false;
 
   if (
     MINUTES_REGEX.test(time)
     && !SECONDS_REGEX.test(time)
   ) {
-    hasOnlyMinutes = true;
+    timeHasOnlyMinutes = true;
   }
 
-  return hasOnlyMinutes;
+  return timeHasOnlyMinutes;
 }
 
 function hasOnlySeconds(time) {
-  let hasOnlySeconds = false;
+  let timeHasOnlySeconds = false;
 
   if (
     !MINUTES_REGEX.test(time)
     && SECONDS_REGEX.test(time)
   ) {
-    hasOnlySeconds = true;
+    timeHasOnlySeconds = true;
   }
 
-  return hasOnlySeconds;
-}
-
-function convertMinutesAndSecondsToSeconds(minutes, seconds) {
-  return (minutes * 60) + seconds;
+  return timeHasOnlySeconds;
 }
 
 function convertTimeToSeconds(time) {
@@ -64,31 +65,6 @@ function convertTimeToSeconds(time) {
   return convertMinutesAndSecondsToSeconds(minutes, seconds);
 }
 
-function sortAllLessonsFromAllEpisodes() {
-  let content = fs.readFileSync(__dirname + '/../source/data/content.json', 'utf8');
-  content = JSON.parse(content);
-
-  content.episodes.forEach(episode => episode.content.lessons.sort(compareLessons));
-
-  fs.writeFileSync(__dirname + '/../source/data/content.json', JSON.stringify(content, null, 2));
-}
-
-function saveLesson({ videoId, time, lesson }) {
-  let content = fs.readFileSync(__dirname + '/../source/data/content.json', 'utf8');
-  content = JSON.parse(content);
-
-  const episode = content.episodes.find(episode => episode.meta.url === videoId);
-
-  episode.content.lessons.push({
-    url: time,
-    description: lesson
-  });
-
-  episode.content.lessons.sort(compareLessons);
-
-  fs.writeFileSync(__dirname + '/../source/data/content.json', JSON.stringify(content, null, 2));
-}
-
 function compareLessons(lessonOne, lessonTwo) {
   const lessonOneSeconds = convertTimeToSeconds(lessonOne.url);
   const lessonTwoSeconds = convertTimeToSeconds(lessonTwo.url);
@@ -104,6 +80,33 @@ function compareLessons(lessonOne, lessonTwo) {
   return 0;
 }
 
+function sortAllLessonsFromAllEpisodes() {
+  const contentFilePath = path.resolve(__dirname, '/../source/data/content.json');
+  let content = fs.readFileSync(contentFilePath, 'utf8');
+  content = JSON.parse(content);
+
+  content.episodes.forEach(episode => episode.content.lessons.sort(compareLessons));
+
+  fs.writeFileSync(contentFilePath, JSON.stringify(content, null, 2));
+}
+
+function saveLesson({ videoId, time, lesson }) {
+  const contentFilePath = path.resolve(__dirname, '/../source/data/content.json');
+  let content = fs.readFileSync(contentFilePath, 'utf8');
+  content = JSON.parse(content);
+
+  const episode = content.episodes.find(episodeData => episodeData.meta.url === videoId);
+
+  episode.content.lessons.push({
+    url: time,
+    description: lesson,
+  });
+
+  episode.content.lessons.sort(compareLessons);
+
+  fs.writeFileSync(contentFilePath, JSON.stringify(content, null, 2));
+}
+
 function addLesson() {
   prompt.message = '';
 
@@ -113,13 +116,13 @@ function addLesson() {
     properties: {
       videoUrl: {
         message: 'Video URL?',
-        required: true
+        required: true,
       },
       lesson: {
         message: 'Lesson learnt?',
-        required: true
-      }
-    }
+        required: true,
+      },
+    },
   };
 
   prompt.get(schema, (error, result) => {
@@ -131,7 +134,7 @@ function addLesson() {
     const lessonData = {
       videoId,
       time,
-      lesson
+      lesson,
     };
 
     saveLesson(lessonData);
@@ -143,5 +146,5 @@ function addLesson() {
 module.exports = {
   convertTimeToSeconds,
   addLesson,
-  sortAllLessonsFromAllEpisodes
+  sortAllLessonsFromAllEpisodes,
 };

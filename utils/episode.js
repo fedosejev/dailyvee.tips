@@ -9,13 +9,13 @@ const API_KEY = require('../config.json').API_KEY;
 const YOUTUBE_VIDEO_URL = 'https://www.youtube.com/watch?v=';
 
 function addEpisodeDescription(episode) {
-  const configFilePath = path.resolve(__dirname, '/../source/data/content.json');
-  let content = fs.readFileSync(configFilePath, 'utf8');
+  const contentFilePath = path.resolve(__dirname, '/../source/data/content.json');
+  let content = fs.readFileSync(contentFilePath, 'utf8');
   content = JSON.parse(content);
 
   content.episodes.unshift(episode);
 
-  fs.writeFileSync(configFilePath, JSON.stringify(content, null, 2));
+  fs.writeFileSync(contentFilePath, JSON.stringify(content, null, 2));
 }
 
 function downloadCoverImage(coverImageUrl, number) {
