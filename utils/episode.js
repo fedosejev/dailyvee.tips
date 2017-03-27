@@ -1,43 +1,54 @@
 const YouTube = require('youtube-node');
 const moment = require('moment');
+const path = require('path');
 const fs = require('fs');
 const imageDownloader = require('image-downloader');
 const prompt = require('prompt');
+const API_KEY = require('../config.json').API_KEY;
 
-const API_KEY = require('../config.json').apiKey;
 const YOUTUBE_VIDEO_URL = 'https://www.youtube.com/watch?v=';
 
-function getVideoDetails(videoId) {
-  const youTube = new YouTube();
+function addEpisodeDescription(episode) {
+  const configFilePath = path.resolve(__dirname, '/../source/data/content.json');
+  let content = fs.readFileSync(configFilePath, 'utf8');
+  content = JSON.parse(content);
 
-  youTube.setKey(API_KEY);
+  content.episodes.unshift(episode);
 
-  youTube.getById(videoId, (error, result) => {
-    if (error) {
-      throw error;
-    }
+  fs.writeFileSync(configFilePath, JSON.stringify(content, null, 2));
+}
 
-    parseVideoDetails(result);
+function downloadCoverImage(coverImageUrl, number) {
+  imageDownloader({
+    url: coverImageUrl,
+    dest: path.resolve(__dirname, `/../source/data/images/dailyvee${number}.jpg`),
+    done: (error, filename) => {
+      if (error) {
+        throw error;
+      }
+
+      console.log('File saved to', filename);
+    },
   });
 }
 
 function parseVideoDetails(details) {
   const episode = {
-    "meta": {
-      "name": null,
-      "number": null,
-      "url": null,
-      "coverImage": null,
-      "filmedBy": [],
-      "editedBy": [],
-      "publishedOn": null
+    meta: {
+      name: null,
+      number: null,
+      url: null,
+      coverImage: null,
+      filmedBy: [],
+      editedBy: [],
+      publishedOn: null,
     },
-    "content": {
-      "lessons": [],
-      "moments": [],
-      "people": [],
-      "locations": []
-    }
+    content: {
+      lessons: [],
+      moments: [],
+      people: [],
+      locations: [],
+    },
   };
 
   const video = details.items[0].snippet;
@@ -59,27 +70,18 @@ function parseVideoDetails(details) {
   addEpisodeDescription(episode);
 }
 
-function downloadCoverImage(coverImageUrl, number) {
-  imageDownloader({
-    url: coverImageUrl,
-    dest: __dirname + `/../source/data/images/dailyvee${number}.jpg`,
-    done: (error, filename) => {
-      if (error) {
-        throw error;
-      }
+function getVideoDetails(videoId) {
+  const youTube = new YouTube();
 
-      console.log('File saved to', filename);
+  youTube.setKey(API_KEY);
+
+  youTube.getById(videoId, (error, result) => {
+    if (error) {
+      throw error;
     }
+
+    parseVideoDetails(result);
   });
-}
-
-function addEpisodeDescription(episode) {
-  let content = fs.readFileSync(__dirname + '/../source/data/content.json', 'utf8');
-  content = JSON.parse(content);
-
-  content.episodes.unshift(episode);
-
-  fs.writeFileSync(__dirname + '/../source/data/content.json', JSON.stringify(content, null, 2));
 }
 
 function addEpisode() {
@@ -91,12 +93,12 @@ function addEpisode() {
     properties: {
       videoUrl: {
         message: 'Video URL?',
-        required: true
-      }
-    }
+        required: true,
+      },
+    },
   };
 
-  prompt.get(schema, function (err, result) {
+  prompt.get(schema, (err, result) => {
     const videoId = result.videoUrl.replace(YOUTUBE_VIDEO_URL, '');
 
     getVideoDetails(videoId);
@@ -104,5 +106,5 @@ function addEpisode() {
 }
 
 module.exports = {
-  addEpisode
+  addEpisode,
 };
