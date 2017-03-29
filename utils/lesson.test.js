@@ -25,7 +25,7 @@ describe('lesson', () => {
     expect(expectedResultTwo).toBe(resultTwo);
     expect(expectedResultThree).toBe(resultThree);
     expect(expectedResultFour).toBe(resultFour);
-    expect(expectedResultFive).toBe(resultFour);
-    expect(expectedResultSix).toBe(resultFour);
+    expect(expectedResultFive).toBe(resultFive);
+    expect(expectedResultSix).toBe(resultSix);
   });
 });
