@@ -4,12 +4,12 @@ const path = require('path');
 const fs = require('fs');
 const imageDownloader = require('image-downloader');
 const prompt = require('prompt');
-const API_KEY = require('../config.json').API_KEY;
+const API_KEY = require('../config.json').apiKey;
 
 const YOUTUBE_VIDEO_URL = 'https://www.youtube.com/watch?v=';
 
 function addEpisodeDescription(episode) {
-  const contentFilePath = path.resolve(__dirname, '/../source/data/content.json');
+  const contentFilePath = path.resolve(__dirname, '../source/data/content.json');
   let content = fs.readFileSync(contentFilePath, 'utf8');
   content = JSON.parse(content);
 
@@ -21,7 +21,7 @@ function addEpisodeDescription(episode) {
 function downloadCoverImage(coverImageUrl, number) {
   imageDownloader({
     url: coverImageUrl,
-    dest: path.resolve(__dirname, `/../source/data/images/dailyvee${number}.jpg`),
+    dest: path.resolve(__dirname, `../source/data/images/dailyvee${number}.jpg`),
     done: (error, filename) => {
       if (error) {
         throw error;
@@ -55,7 +55,7 @@ function parseVideoDetails(details) {
 
   const name = video.title.split('|')[0].trim();
   const number = video.title.split('|')[1].replace('DailyVee', '').trim();
-  const url = `${YOUTUBE_VIDEO_URL}${details.items[0].id}`;
+  const url = `${details.items[0].id}`;
   const coverImage = `dailyvee${number}.jpg`;
   const publishedOn = moment(video.publishedAt).format('YYYY-MM-DD');
   const coverImageUrl = video.thumbnails.maxres.url;

@@ -2,6 +2,23 @@
   "episodes": [
     {
       "meta": {
+        "name": "A LOGICAL DAY",
+        "number": "193",
+        "url": "https://www.youtube.com/watch?v=aqCKyX2ycCs",
+        "coverImage": "dailyvee193.jpg",
+        "filmedBy": [],
+        "editedBy": [],
+        "publishedOn": "2017-03-29"
+      },
+      "content": {
+        "lessons": [],
+        "moments": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "meta": {
         "name": "OFFSITE AND OFFENSE",
         "number": "192",
         "url": "rHdTBZRe_HU",
