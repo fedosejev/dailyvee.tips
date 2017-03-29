@@ -81,7 +81,7 @@ function compareLessons(lessonOne, lessonTwo) {
 }
 
 function sortAllLessonsFromAllEpisodes() {
-  const contentFilePath = path.resolve(__dirname, '/../source/data/content.json');
+  const contentFilePath = path.resolve(__dirname, '../source/data/content.json');
   let content = fs.readFileSync(contentFilePath, 'utf8');
   content = JSON.parse(content);
 
@@ -91,7 +91,7 @@ function sortAllLessonsFromAllEpisodes() {
 }
 
 function saveLesson({ videoId, time, lesson }) {
-  const contentFilePath = path.resolve(__dirname, '/../source/data/content.json');
+  const contentFilePath = path.resolve(__dirname, '../source/data/content.json');
   let content = fs.readFileSync(contentFilePath, 'utf8');
   content = JSON.parse(content);
 

@@ -6,7 +6,7 @@ import Episodes from './components/Episodes';
 import content from '../data/content.json';
 
 const render = () => {
-  const indexHtmlFilePath = path.resolve(__dirname, '/../../docs/index.html');
+  const indexHtmlFilePath = path.resolve(__dirname, '../../docs/index.html');
   const indexHtml = readFileSync(indexHtmlFilePath, 'utf8');
 
   const rendered = renderToStaticMarkup(
