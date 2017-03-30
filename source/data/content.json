@@ -2,6 +2,23 @@
   "episodes": [
     {
       "meta": {
+        "name": "WHAT'S ON YOUR MIND?",
+        "number": "194",
+        "url": "f3ep9iG07bI",
+        "coverImage": "dailyvee194.jpg",
+        "filmedBy": [],
+        "editedBy": [],
+        "publishedOn": "2017-03-30"
+      },
+      "content": {
+        "lessons": [],
+        "moments": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "meta": {
         "name": "A LOGICAL DAY",
         "number": "193",
         "url": "aqCKyX2ycCs",
