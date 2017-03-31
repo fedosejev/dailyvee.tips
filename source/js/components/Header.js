@@ -79,10 +79,10 @@ class Header extends Component {
       <div className="header">
         <div className="container">
           <div className="row">
-            <div className="col-sm-3">
+            <div className="col-sm-4 col-md-3">
               {this.renderHeader()}
             </div>
-            <div className="col-sm-9">
+            <div className="col-sm-8 col-md-9">
 
               <form className="search" onSubmit={event => event.preventDefault()}>
                 <div className="form-group">

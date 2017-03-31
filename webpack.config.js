@@ -43,7 +43,7 @@ module.exports = {
       },
     ]),
     new StyleLintPlugin({
-      configFile: '.stylelintrc.json',
+      configFile: '.stylelintrc',
       syntax: 'scss',
     }),
   ],
