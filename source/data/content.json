@@ -245,12 +245,7 @@
         "publishedOn": "2017-03-13"
       },
       "content": {
-        "lessons": [
-          {
-            "url": "",
-            "description": ""
-          }
-        ],
+        "lessons": [],
         "moments": [],
         "people": [],
         "locations": []
