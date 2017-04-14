@@ -8,6 +8,28 @@ const API_KEY = require('../config.json').apiKey;
 
 const YOUTUBE_VIDEO_URL = 'https://www.youtube.com/watch?v=';
 
+function compareEpisodes(episodeOne, episodeTwo) {
+  if (parseInt(episodeOne.meta.number, 10) > parseInt(episodeTwo.meta.number, 10)) {
+    return -1;
+  }
+
+  if (parseInt(episodeOne.meta.number, 10) < parseInt(episodeTwo.meta.number, 10)) {
+    return 1;
+  }
+
+  return 0;
+}
+
+function sortAllEpisodes() {
+  const contentFilePath = path.resolve(__dirname, '../source/data/content.json');
+  let content = fs.readFileSync(contentFilePath, 'utf8');
+  content = JSON.parse(content);
+
+  content.episodes.sort(compareEpisodes);
+
+  fs.writeFileSync(contentFilePath, JSON.stringify(content, null, 2));
+}
+
 function addEpisodeDescription(episode) {
   const contentFilePath = path.resolve(__dirname, '../source/data/content.json');
   let content = fs.readFileSync(contentFilePath, 'utf8');
@@ -107,4 +129,5 @@ function addEpisode() {
 
 module.exports = {
   addEpisode,
+  sortAllEpisodes,
 };
