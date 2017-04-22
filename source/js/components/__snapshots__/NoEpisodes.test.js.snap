@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoEpisodes SHOULD render correctly 1`] = `
+<div
+  className="noEpisodes"
+>
+  No episodes found.
+</div>
+`;

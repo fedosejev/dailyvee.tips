@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CoverImage SHOULD render correctly 1`] = `
+<a
+  href={undefined}
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  <img
+    alt="DailyVee #undefined"
+    className="episodeCoverImage"
+    src="http://placehold.it/1280x720?text=DAILYVEE"
+    title="DailyVee #undefined"
+  />
+</a>
+`;

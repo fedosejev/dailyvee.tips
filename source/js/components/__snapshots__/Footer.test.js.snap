@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer SHOULD render correctly 1`] = `
+<div
+  className="footer"
+>
+  Created by 
+  <a
+    href="https://artemij.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Artemij Fedosejev
+  </a>
+  .
+</div>
+`;

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClearFilterButton SHOULD render correctly 1`] = `
+<button
+  className="clearFilterButton"
+  onClick={[Function]}
+  title="Clear filter"
+>
+  <i
+    aria-hidden="true"
+    className="fa fa-times-circle"
+  />
+</button>
+`;

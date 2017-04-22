@@ -3,7 +3,7 @@ import moment from 'moment';
 import {
   episodeHasLocations,
   hasFilmedBy,
-  hasEditedBy
+  hasEditedBy,
 } from '../../utils/episode';
 import FilmedBy from './FilmedBy';
 import EditedBy from './EditedBy';
@@ -32,7 +32,7 @@ const Info = ({
   filmedBy,
   editedBy,
   publishedOn,
-  locations
+  locations,
 }) => (
   <div className="info">
 

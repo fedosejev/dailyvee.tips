@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title SHOULD render correctly 1`] = `
+<a
+  href={undefined}
+  target="_blank"
+>
+  <h2>
+    <span
+      className="episodeNumber"
+    >
+      #
+       
+    </span>
+  </h2>
+</a>
+`;
