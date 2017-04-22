@@ -41,7 +41,12 @@
         "publishedOn": "2017-04-21"
       },
       "content": {
-        "lessons": [],
+        "lessons": [
+          {
+            "url": "9m28s",
+            "description": "Content distribution can beat content creative."
+          }
+        ],
         "moments": [],
         "people": [],
         "locations": []
