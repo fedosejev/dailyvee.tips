@@ -11,7 +11,12 @@
         "publishedOn": "2017-04-22"
       },
       "content": {
-        "lessons": [],
+        "lessons": [
+          {
+            "url": "1m28s",
+            "description": "Podcasts are winning. It's underpriced."
+          }
+        ],
         "moments": [],
         "people": [],
         "locations": []
