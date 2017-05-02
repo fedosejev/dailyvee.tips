@@ -28,7 +28,12 @@
         "publishedOn": "2017-04-29"
       },
       "content": {
-        "lessons": [],
+        "lessons": [
+          {
+            "url": "8m51s",
+            "description": "Figure out who you are, don't apologize for who you are and then become even greater than you naturally are at what you are."
+          }
+        ],
         "moments": [],
         "people": [],
         "locations": []
