@@ -82,6 +82,10 @@ function parseVideoDetails(details) {
   const publishedOn = moment(video.publishedAt).format('YYYY-MM-DD');
   const coverImageUrl = video.thumbnails.maxres.url;
 
+  if (Number.isNaN(parseInt(number, 10))) {
+    throw new Error('Failed to parse episode number!');
+  }
+
   episode.meta.name = name;
   episode.meta.number = number;
   episode.meta.url = url;
