@@ -76,7 +76,7 @@ function parseVideoDetails(details) {
   const video = details.items[0].snippet;
 
   const name = video.title.split('|')[0].trim();
-  const number = video.title.split('|')[1].replace('DailyVee', '').trim();
+  const number = video.title.split('|')[1].replace(/dailyvee/gi, '').trim();
   const url = `${details.items[0].id}`;
   const coverImage = `dailyvee${number}.jpg`;
   const publishedOn = moment(video.publishedAt).format('YYYY-MM-DD');
