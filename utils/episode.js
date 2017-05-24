@@ -73,6 +73,8 @@ function parseVideoDetails(details) {
     },
   };
 
+  console.log('details', details);
+
   const video = details.items[0].snippet;
 
   const name = video.title.split('|')[0].trim();
